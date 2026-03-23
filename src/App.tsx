@@ -333,43 +333,60 @@ export default function App() {
                   "Dedicated to providing compassionate, evidence-based care that nurtures the health and happiness of every child."
                 </p>
 
-                <div className="grid gap-10 md:grid-cols-2">
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
-                      <GraduationCap className="text-primary" size={20} />
-                      <h4 className="text-sm font-bold uppercase tracking-widest text-slate-900">Education</h4>
-                    </div>
-                    <ul className="space-y-4">
-                      {EDUCATION.map((edu, i) => (
-                        <li key={i} className="group">
-                          <p className="text-sm font-bold text-slate-900 group-hover:text-primary transition-colors">{edu.degree}</p>
-                          <p className="text-xs text-slate-500 mt-1">{edu.institution} • {edu.batch}</p>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="space-y-6">
-                    <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
+                <div className="space-y-12">
+                  {/* Current Practice - Priority */}
+                  <div className="rounded-[32px] bg-slate-50 p-8 border border-slate-100 relative overflow-hidden group">
+                    <div className="absolute top-0 right-0 -mr-8 -mt-8 h-32 w-32 rounded-full bg-primary/5 blur-2xl group-hover:bg-primary/10 transition-all"></div>
+                    <div className="flex items-center gap-3 mb-6 relative z-10">
                       <Briefcase className="text-primary" size={20} />
-                      <h4 className="text-sm font-bold uppercase tracking-widest text-slate-900">Experience</h4>
+                      <h4 className="text-sm font-bold uppercase tracking-widest text-slate-900">Current Practice</h4>
                     </div>
-                    <div className="space-y-6">
+                    <div className="space-y-6 relative z-10">
                       <div>
-                        <p className="text-xs font-bold uppercase tracking-wider text-primary mb-2">Current Practice</p>
-                        <p className="text-sm font-bold text-slate-900">{EXPERIENCE.current.role}</p>
-                        <p className="text-xs text-slate-500">{EXPERIENCE.current.hospital}</p>
+                        <p className="text-2xl font-bold text-slate-900 tracking-tight">{EXPERIENCE.current.role}</p>
+                        <p className="text-lg font-medium text-slate-600 mt-1">{EXPERIENCE.current.hospital}</p>
                       </div>
-                      <div>
-                        <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Previous</p>
-                        <div className="flex flex-wrap gap-2">
-                          {EXPERIENCE.previous.map((exp, i) => (
-                            <span key={i} className="rounded-lg bg-slate-50 px-3 py-1.5 text-[11px] font-bold text-slate-600">
-                              {exp}
-                            </span>
-                          ))}
+                      <div className="flex items-start gap-4 rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200/50">
+                        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-primary">
+                          <Clock size={20} />
+                        </div>
+                        <div>
+                          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">OPD Hours</p>
+                          <p className="text-sm font-bold text-slate-700 mt-1 leading-relaxed">{EXPERIENCE.current.hours}</p>
                         </div>
                       </div>
+                    </div>
+                  </div>
+
+                  <div className="grid gap-12 md:grid-cols-2">
+                    {/* Previous Experience */}
+                    <div className="space-y-6">
+                      <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-slate-900">Previous Experience</h4>
+                      </div>
+                      <div className="flex flex-wrap gap-2">
+                        {EXPERIENCE.previous.map((exp, i) => (
+                          <span key={i} className="rounded-xl bg-slate-50 border border-slate-100 px-4 py-2 text-xs font-bold text-slate-600 hover:bg-white hover:shadow-md transition-all cursor-default">
+                            {exp}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Qualifications */}
+                    <div className="space-y-6">
+                      <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
+                        <GraduationCap className="text-primary" size={20} />
+                        <h4 className="text-sm font-bold uppercase tracking-widest text-slate-900">Qualifications</h4>
+                      </div>
+                      <ul className="space-y-5">
+                        {EDUCATION.map((edu, i) => (
+                          <li key={i} className="group">
+                            <p className="text-sm font-bold text-slate-900 group-hover:text-primary transition-colors">{edu.degree}</p>
+                            <p className="text-xs text-slate-500 mt-1.5 leading-relaxed">{edu.institution} • {edu.batch}</p>
+                          </li>
+                        ))}
+                      </ul>
                     </div>
                   </div>
                 </div>
