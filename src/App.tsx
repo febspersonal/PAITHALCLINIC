@@ -50,23 +50,29 @@ const SERVICES = [
   }
 ];
 
-const EXPERIENCE = [
-  "Consultant Paediatrician at We One Hospital, Kavunkal",
-  "KVM Hospital",
-  "Poochakal Medical Center",
-  "Rishiram Hospital"
-];
+const EXPERIENCE = {
+  current: {
+    role: "Consultant Paediatrician",
+    hospital: "We One Hospital, Kavunkal",
+    hours: "Morning consultations available from 9:30 AM to 01:00 PM"
+  },
+  previous: [
+    "KVM Hospital",
+    "Poochakal Medical Center",
+    "Rishiram Hospital"
+  ]
+};
 
 const EDUCATION = [
-  {
-    degree: "DNB Paediatrics",
-    institution: "G. Kuppuswamy Naidu Memorial Hospital (GKNM), Coimbatore",
-    batch: "2018 Batch"
-  },
   {
     degree: "MBBS",
     institution: "Government Medical College Thiruvananthapuram",
     batch: "2007 Batch"
+  },
+  {
+    degree: "DNB Paediatrics",
+    institution: "G. Kuppuswamy Naidu Memorial Hospital (GKNM), Coimbatore",
+    batch: "2018 Batch"
   }
 ];
 
@@ -269,17 +275,17 @@ export default function App() {
                 providing evidence-based medical care tailored to each child's needs.
               </p>
 
-              <div className="mt-10 space-y-6">
+              <div className="mt-10 space-y-8">
                 <div className="flex items-start gap-4">
                   <div className="mt-1 rounded-lg bg-blue-100 p-2 text-primary">
                     <GraduationCap size={20} />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900">Education</h4>
-                    <ul className="mt-2 space-y-2 text-sm text-slate-600">
+                    <h4 className="font-bold text-slate-900">Professional Qualification</h4>
+                    <ul className="mt-2 space-y-3 text-sm text-slate-600">
                       {EDUCATION.map((edu, i) => (
                         <li key={i}>
-                          <span className="font-bold">{edu.degree}</span>: {edu.institution} ({edu.batch})
+                          <span className="font-bold text-slate-800">{edu.degree}</span>: {edu.institution} ({edu.batch})
                         </li>
                       ))}
                     </ul>
@@ -290,16 +296,26 @@ export default function App() {
                   <div className="mt-1 rounded-lg bg-emerald-100 p-2 text-emerald-600">
                     <Briefcase size={20} />
                   </div>
-                  <div>
-                    <h4 className="font-bold text-slate-900">Experience</h4>
-                    <ul className="mt-2 space-y-2 text-sm text-slate-600">
-                      {EXPERIENCE.map((exp, i) => (
-                        <li key={i} className="flex items-center gap-2">
-                          <div className="h-1.5 w-1.5 rounded-full bg-emerald-400"></div>
-                          {exp}
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="space-y-4">
+                    <div>
+                      <h4 className="font-bold text-slate-900">Current Practice</h4>
+                      <div className="mt-2 text-sm text-slate-600">
+                        <p className="font-bold text-slate-800">{EXPERIENCE.current.role}</p>
+                        <p>{EXPERIENCE.current.hospital}</p>
+                        <p className="mt-2 italic text-primary">OPD Hours: {EXPERIENCE.current.hours}</p>
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900">Previous Experiences</h4>
+                      <ul className="mt-2 space-y-2 text-sm text-slate-600">
+                        {EXPERIENCE.previous.map((exp, i) => (
+                          <li key={i} className="flex items-center gap-2">
+                            <div className="h-1.5 w-1.5 rounded-full bg-emerald-400"></div>
+                            {exp}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
