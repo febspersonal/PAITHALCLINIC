@@ -458,7 +458,7 @@ export default function App() {
                   </div>
                   <div>
                     <p className="text-sm font-medium text-slate-300 uppercase tracking-wider">Clinic Hours</p>
-                    <p className="mt-2 text-xl font-medium text-slate-300 -white">Mon – Sat: 5:00 PM – 7:00 PM</p>
+                    <p className="mt-2 text-xl font-medium text-white -white">Mon – Sat: 5:00 PM – 7:00 PM</p>
                     <p className="mt-1 text-sm text-slate-500 italic">Sunday: Closed</p>
                   </div>
                 </div>
