@@ -115,13 +115,18 @@ export default function App() {
 
             {/* Desktop Menu */}
             <div className="hidden items-center gap-6 lg:flex ml-4">
-              {['Home', 'Doctor', 'About Us', 'Our Services'].map((item) => (
+              {[
+                { label: 'Home', id: 'home' },
+                { label: 'Doctor', id: 'doctor' },
+                { label: 'About Us', id: 'about' },
+                { label: 'Our Services', id: 'services' }
+              ].map((item) => (
                 <button
-                  key={item}
-                  onClick={() => scrollToSection(item.toLowerCase().replace(' ', ''))}
-                  className={`text-sm font-medium transition-colors ${item === 'Home' ? 'bg-white/10 px-3 py-1 rounded-md text-white' : 'text-white/80 hover:text-white'}`}
+                  key={item.label}
+                  onClick={() => scrollToSection(item.id)}
+                  className={`text-sm font-medium transition-colors ${item.label === 'Home' ? 'bg-white/10 px-3 py-1 rounded-md text-white' : 'text-white/80 hover:text-white'}`}
                 >
-                  {item}
+                  {item.label}
                 </button>
               ))}
             </div>
@@ -149,13 +154,19 @@ export default function App() {
               className="border-t border-white/10 bg-primary md:hidden"
             >
               <div className="flex flex-col gap-4 p-4">
-                {['Home', 'Doctor', 'About', 'Services', 'Contact'].map((item) => (
+                {[
+                  { label: 'Home', id: 'home' },
+                  { label: 'Doctor', id: 'doctor' },
+                  { label: 'About Us', id: 'about' },
+                  { label: 'Our Services', id: 'services' },
+                  { label: 'Contact', id: 'contact' }
+                ].map((item) => (
                   <button
-                    key={item}
-                    onClick={() => scrollToSection(item.toLowerCase())}
+                    key={item.label}
+                    onClick={() => scrollToSection(item.id)}
                     className="text-left text-lg font-medium text-white/90 hover:text-white"
                   >
-                    {item}
+                    {item.label}
                   </button>
                 ))}
               </div>
