@@ -91,16 +91,16 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       {/* Navigation */}
-      <nav className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-white/80 shadow-md backdrop-blur-md' : 'bg-transparent'}`}>
+      <nav className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-primary shadow-lg' : 'bg-primary'}`}>
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 md:px-8">
           <div className="flex items-center gap-2">
             <img 
               src="https://static.wixstatic.com/media/3006e6_50928eadd5024fe684c7c1bc252ff133~mv2.png/v1/crop/x_34,y_10,w_466,h_456/fill/w_95,h_92,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2026-01-02-removebg-preview.png" 
               alt="Paithal Clinic Logo" 
-              className="h-12 w-auto object-contain"
+              className="h-12 w-auto object-contain brightness-0 invert"
               referrerPolicy="no-referrer"
             />
-            <span className="text-xl font-bold tracking-tight text-slate-800">Paithal Clinic</span>
+            <span className="text-xl font-bold tracking-tight text-white">Paithal Clinic</span>
           </div>
 
           {/* Desktop Menu */}
@@ -109,21 +109,21 @@ export default function App() {
               <button
                 key={item}
                 onClick={() => scrollToSection(item.toLowerCase())}
-                className="text-sm font-medium text-slate-600 transition-colors hover:text-primary"
+                className="text-sm font-medium text-white/80 transition-colors hover:text-white"
               >
                 {item}
               </button>
             ))}
             <button 
               onClick={() => scrollToSection('contact')}
-              className="rounded-full bg-primary px-6 py-2 text-sm font-semibold text-white shadow-md shadow-blue-200 transition-all hover:bg-primary-hover hover:shadow-lg active:scale-95"
+              className="rounded-full bg-white px-6 py-2 text-sm font-bold text-primary shadow-md transition-all hover:bg-slate-100 active:scale-95"
             >
               Book Appointment
             </button>
           </div>
 
           {/* Mobile Menu Toggle */}
-          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+          <button className="text-white md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X /> : <Menu />}
           </button>
         </div>
@@ -135,14 +135,14 @@ export default function App() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="border-t bg-white md:hidden"
+              className="border-t border-white/10 bg-primary md:hidden"
             >
               <div className="flex flex-col gap-4 p-4">
                 {['Home', 'Doctor', 'About', 'Services', 'Contact'].map((item) => (
                   <button
                     key={item}
                     onClick={() => scrollToSection(item.toLowerCase())}
-                    className="text-left text-lg font-medium text-slate-600"
+                    className="text-left text-lg font-medium text-white/90 hover:text-white"
                   >
                     {item}
                   </button>
@@ -470,7 +470,7 @@ export default function App() {
           <div className="flex flex-col items-center gap-4">
             <div className="flex items-center gap-2">
               <img 
-                src="https://static.wixstatic.com/media/3006e6_50928eadd5024fe684c7c1bc252ff133~mv2.png" 
+                src="https://static.wixstatic.com/media/3006e6_50928eadd5024fe684c7c1bc252ff133~mv2.png/v1/crop/x_34,y_10,w_466,h_456/fill/w_95,h_92,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2026-01-02-removebg-preview.png" 
                 alt="Paithal Clinic Logo" 
                 className="h-10 w-auto object-contain brightness-0 invert opacity-80"
                 referrerPolicy="no-referrer"
