@@ -19,6 +19,11 @@ import {
 
 const SERVICES = [
   {
+    title: "Consultation",
+    description: "Personalized paediatric care focused on individual attention and careful clinical evaluation tailored to your child's unique needs. We provide evidence-based medical advice and clear explanations to empower families with confidence.",
+    icon: Stethoscope
+  },
+  {
     title: "Growth & Development Monitoring",
     description: "Regular assessment of physical, emotional, and developmental milestones. Early identification and guidance to ensure healthy growth at every stage.",
     icon: Baby
@@ -92,24 +97,24 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900">
       {/* Navigation */}
-      <nav className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-primary shadow-xl py-2' : 'bg-primary/95 backdrop-blur-md py-4 shadow-md'}`}>
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 md:px-8">
+      <nav className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-7xl transition-all duration-300 rounded-2xl md:rounded-full ${scrolled ? 'bg-primary shadow-2xl py-2' : 'bg-primary/95 backdrop-blur-md py-4 shadow-xl'}`}>
+        <div className="flex items-center justify-between px-6 md:px-10">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-3 cursor-pointer" onClick={() => scrollToSection('home')}>
               <img 
                 src="https://static.wixstatic.com/media/3006e6_50928eadd5024fe684c7c1bc252ff133~mv2.png/v1/crop/x_34,y_10,w_466,h_456/fill/w_95,h_92,fp_0.50_0.50,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/2026-01-02-removebg-preview.png" 
                 alt="Paithal Clinic Logo" 
-                className="h-16 w-auto object-contain brightness-0 invert"
+                className="h-12 md:h-14 w-auto object-contain brightness-0 invert"
                 referrerPolicy="no-referrer"
               />
               <div className="flex flex-col">
-                <span className="text-lg font-bold tracking-tight text-white leading-none">Paithal Clinic</span>
-                <span className="text-[10px] font-semibold text-blue-200 uppercase tracking-widest mt-1">Dr. Neethu Mohan</span>
+                <span className="text-base md:text-lg font-bold tracking-tight text-white leading-none">Paithal Clinic</span>
+                <span className="text-[9px] md:text-[10px] font-semibold text-blue-200 uppercase tracking-widest mt-1">Dr. Neethu Mohan</span>
               </div>
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden items-center gap-8 lg:flex">
+            <div className="hidden items-center gap-6 lg:flex">
               {[
                 { label: 'Home', id: 'home' },
                 { label: 'Doctor', id: 'doctor' },
@@ -129,21 +134,15 @@ export default function App() {
           </div>
 
           <div className="hidden items-center gap-4 md:flex">
-            <div className="flex items-center gap-2 text-blue-100">
-              <Clock size={18} />
-              <span className="text-sm font-bold">Mon – Sat: 5:00 PM – 7:00 PM</span>
+            <div className="flex items-center gap-3 rounded-full bg-white px-6 py-3 text-primary shadow-inner">
+              <Clock size={16} className="text-primary/70" />
+              <span className="text-xs md:text-sm font-bold whitespace-nowrap">Mon – Sat: 5:00 PM – 7:00 PM</span>
             </div>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="rounded-full bg-white px-6 py-2.5 text-sm font-bold text-primary shadow-lg transition-all hover:bg-blue-50 active:scale-95"
-            >
-              Book Now
-            </button>
           </div>
 
           {/* Mobile Menu Toggle */}
           <button className="text-white md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
@@ -154,7 +153,7 @@ export default function App() {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="border-t border-white/10 bg-primary md:hidden"
+              className="border-t border-white/10 bg-primary rounded-b-2xl md:hidden overflow-hidden"
             >
               <div className="flex flex-col gap-4 p-6">
                 {[
@@ -175,6 +174,10 @@ export default function App() {
                     {item.label}
                   </button>
                 ))}
+                <div className="mt-4 flex items-center gap-2 rounded-xl bg-white/10 p-4 text-white">
+                  <Clock size={18} />
+                  <span className="text-sm font-medium">Mon – Sat: 5:00 PM – 7:00 PM</span>
+                </div>
               </div>
             </motion.div>
           )}
@@ -193,10 +196,7 @@ export default function App() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <span className="inline-flex items-center gap-2 rounded-full bg-blue-50 px-4 py-2 text-sm font-bold text-primary mb-10 mt-12">
-                <span className="h-2 w-2 rounded-full bg-primary animate-pulse"></span>
-                Paediatric Specialty Clinic
-              </span>
+
               <h1 className="font-serif text-5xl lg:text-7xl font-semibold leading-[1.1] tracking-tight text-slate-900 mb-8">
                 Expert Care for <br />
                 <span className="italic text-primary">Your Little Ones</span>
