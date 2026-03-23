@@ -301,7 +301,7 @@ export default function App() {
                 {/* Floating Badge */}
                 <div className="absolute -bottom-6 -right-6 rounded-3xl bg-primary p-8 text-white shadow-2xl md:-right-12">
                   <div className="flex flex-col items-center gap-1">
-                    <span className="text-3xl font-bold">10+</span>
+                    <span className="text-3xl font-bold">5+</span>
                     <span className="text-[10px] font-bold uppercase tracking-widest opacity-80">Years Experience</span>
                   </div>
                 </div>
