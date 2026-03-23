@@ -276,83 +276,114 @@ export default function App() {
       </section>
 
       {/* Doctor Section */}
-      <section id="doctor" className="bg-slate-50 py-24">
+      <section id="doctor" className="bg-white py-32 overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 md:px-8">
-          <div className="grid gap-16 md:grid-cols-2 md:items-center">
-            <div className="relative order-2 md:order-1">
-              <div className="aspect-square overflow-hidden rounded-3xl shadow-2xl">
-                <img 
-                  src="https://static.wixstatic.com/media/3006e6_f477ffa97f9d4a40a26999888850957e~mv2.jpg/v1/crop/x_415,y_152,w_1395,h_1295/fill/w_1395,h_1295,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202026-03-03%20at%206_35_edited.jpg" 
-                  alt="Dr. Neethu Mohan"
-                  className="h-full w-full object-cover"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-              <div className="absolute -bottom-8 -right-8 hidden h-48 w-48 rounded-full bg-blue-600/10 blur-3xl md:block"></div>
+          <div className="grid gap-16 lg:grid-cols-12 lg:items-center">
+            
+            {/* Image Column */}
+            <div className="relative lg:col-span-5">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="relative"
+              >
+                <div className="aspect-[4/5] overflow-hidden rounded-[40px] shadow-2xl ring-1 ring-slate-200">
+                  <img 
+                    src="https://static.wixstatic.com/media/3006e6_f477ffa97f9d4a40a26999888850957e~mv2.jpg/v1/crop/x_415,y_152,w_1395,h_1295/fill/w_1395,h_1295,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/WhatsApp%20Image%202026-03-03%20at%206_35_edited.jpg" 
+                    alt="Dr. Neethu Mohan"
+                    className="h-full w-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-700"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+                
+                {/* Floating Badge */}
+                <div className="absolute -bottom-6 -right-6 rounded-3xl bg-primary p-8 text-white shadow-2xl md:-right-12">
+                  <div className="flex flex-col items-center gap-1">
+                    <span className="text-3xl font-bold">10+</span>
+                    <span className="text-[10px] font-bold uppercase tracking-widest opacity-80">Years Experience</span>
+                  </div>
+                </div>
+
+                {/* Decorative Element */}
+                <div className="absolute -left-10 -top-10 -z-10 h-40 w-40 rounded-full bg-blue-50"></div>
+              </motion.div>
             </div>
 
-            <div className="order-1 md:order-2">
-              <h2 className="text-sm font-bold uppercase tracking-widest text-primary mb-4">Meet the Doctor</h2>
-              
-              <div className="mt-8">
-                <h3 className="font-serif text-4xl font-semibold text-slate-900">Dr. Neethu Mohan</h3>
-                <p className="text-xl font-semibold text-primary mt-2">MBBS, DNB (Paediatrics)</p>
-                <p className="text-sm text-slate-500 mt-1">Reg. No: 49862</p>
-              </div>
+            {/* Content Column */}
+            <div className="lg:col-span-7 lg:pl-12">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+              >
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary mb-6 block">The Specialist</span>
+                <h2 className="font-serif text-5xl md:text-6xl font-semibold text-slate-900 leading-tight mb-4">
+                  Dr. Neethu Mohan
+                </h2>
+                <div className="flex flex-wrap items-center gap-4 mb-8">
+                  <span className="rounded-full bg-blue-50 px-4 py-1.5 text-sm font-bold text-primary">MBBS, DNB (Paediatrics)</span>
+                  <span className="h-1 w-1 rounded-full bg-slate-300"></span>
+                  <span className="text-sm font-semibold text-slate-500 uppercase tracking-widest">Reg. No: 49862</span>
+                </div>
 
-              <p className="mt-8 text-lg leading-relaxed text-slate-600">
-                An experienced and compassionate paediatrician dedicated to child healthcare. 
-                Dr. Neethu Mohan believes in building strong relationships with parents while 
-                providing evidence-based medical care tailored to each child's needs.
-              </p>
+                <p className="text-xl leading-relaxed text-slate-600 mb-12 font-medium italic">
+                  "Dedicated to providing compassionate, evidence-based care that nurtures the health and happiness of every child."
+                </p>
 
-              <div className="mt-10 space-y-8">
-                <div className="flex items-start gap-4">
-                  <div className="mt-1 rounded-lg bg-blue-100 p-2 text-primary">
-                    <GraduationCap size={24} />
-                  </div>
-                  <div>
-                    <h4 className="font-serif text-xl font-bold text-slate-900">Professional Qualification</h4>
-                    <ul className="mt-4 space-y-3 text-base text-slate-600">
+                <div className="grid gap-10 md:grid-cols-2">
+                  <div className="space-y-6">
+                    <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
+                      <GraduationCap className="text-primary" size={20} />
+                      <h4 className="text-sm font-bold uppercase tracking-widest text-slate-900">Education</h4>
+                    </div>
+                    <ul className="space-y-4">
                       {EDUCATION.map((edu, i) => (
-                        <li key={i} className="flex items-start gap-2">
-                          <span className="h-1.5 w-1.5 rounded-full bg-primary mt-2 flex-shrink-0"></span>
-                          <span>
-                            <span className="font-bold text-slate-800">{edu.degree}</span>: {edu.institution} ({edu.batch})
-                          </span>
+                        <li key={i} className="group">
+                          <p className="text-sm font-bold text-slate-900 group-hover:text-primary transition-colors">{edu.degree}</p>
+                          <p className="text-xs text-slate-500 mt-1">{edu.institution} • {edu.batch}</p>
                         </li>
                       ))}
                     </ul>
                   </div>
-                </div>
 
-                <div className="flex items-start gap-4">
-                  <div className="mt-1 rounded-lg bg-emerald-100 p-2 text-emerald-600">
-                    <Briefcase size={24} />
-                  </div>
-                  <div className="space-y-8">
-                    <div>
-                      <h4 className="font-serif text-xl font-bold text-slate-900">Current Practice</h4>
-                      <div className="mt-4 text-base text-slate-600">
-                        <p className="font-bold text-slate-800">{EXPERIENCE.current.role}</p>
-                        <p>{EXPERIENCE.current.hospital}</p>
-                        <p className="mt-2 font-semibold text-primary">OPD Hours: {EXPERIENCE.current.hours}</p>
+                  <div className="space-y-6">
+                    <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
+                      <Briefcase className="text-primary" size={20} />
+                      <h4 className="text-sm font-bold uppercase tracking-widest text-slate-900">Experience</h4>
+                    </div>
+                    <div className="space-y-6">
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-wider text-primary mb-2">Current Practice</p>
+                        <p className="text-sm font-bold text-slate-900">{EXPERIENCE.current.role}</p>
+                        <p className="text-xs text-slate-500">{EXPERIENCE.current.hospital}</p>
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2">Previous</p>
+                        <div className="flex flex-wrap gap-2">
+                          {EXPERIENCE.previous.map((exp, i) => (
+                            <span key={i} className="rounded-lg bg-slate-50 px-3 py-1.5 text-[11px] font-bold text-slate-600">
+                              {exp}
+                            </span>
+                          ))}
+                        </div>
                       </div>
                     </div>
-                    <div>
-                      <h4 className="font-serif text-xl font-bold text-slate-900">Previous Experiences</h4>
-                      <ul className="mt-4 space-y-3 text-base text-slate-600">
-                        {EXPERIENCE.previous.map((exp, i) => (
-                          <li key={i} className="flex items-start gap-2">
-                            <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 mt-2 flex-shrink-0"></span>
-                            <span>{exp}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
                   </div>
                 </div>
-              </div>
+
+                <div className="mt-16 flex items-center gap-6">
+                  <button 
+                    onClick={() => scrollToSection('contact')}
+                    className="rounded-full bg-slate-900 px-8 py-4 text-sm font-bold text-white transition-all hover:bg-slate-800 hover:-translate-y-1 active:scale-95"
+                  >
+                    Consult Dr. Neethu
+                  </button>
+                  <div className="h-px flex-1 bg-slate-100"></div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -396,9 +427,8 @@ export default function App() {
           <div className="grid gap-20 lg:grid-cols-2">
             <div>
               <h2 className="text-sm font-bold uppercase tracking-widest text-blue-400 mb-6">Get in Touch</h2>
-              <p className="font-serif text-4xl md:text-5xl font-semibold text-white leading-tight">
-                We are here to help. <br />
-                <span className="text-blue-400 italic">Reach out to us</span> for appointments.
+
+                <span className="text-blue-400 italic">Reach out to us</span>
               </p>
 
               <div className="mt-16 space-y-10">
