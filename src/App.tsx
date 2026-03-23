@@ -547,7 +547,7 @@ export default function App() {
             
             <div className="text-center md:text-right">
               <p className="text-sm text-slate-400">© {new Date().getFullYear()} Paithal Clinic. All rights reserved.</p>
-              <p className="mt-1 text-xs text-slate-600 italic font-serif">Healthy children, happy families.</p>
+              <p className="mt-1 text-sm text-slate-600 italic font-serif">Healthy children, happy families.</p>
             </div>
           </div>
         </div>
