@@ -447,7 +447,7 @@ export default function App() {
             <div>
               <h2 className="text-sm font-bold uppercase tracking-widest text-blue-400 mb-6">Get in Touch</h2>
 
-              <div className="mt-16 space-y-10">
+              <div className="mt-16 space-y-12">
                 <div className="flex items-start gap-8 group">
                   <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-blue-400 transition-all group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110 flex-shrink-0">
                     <Phone size={32} />
@@ -471,80 +471,62 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className="space-y-10">
-                  <div className="flex items-start gap-8 group">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-blue-400 transition-all group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110 flex-shrink-0">
-                      <Clock size={32} />
-                    </div>
-                    <div className="pt-1">
-                      <p className="text-sm font-medium text-slate-300 uppercase tracking-wider">Clinic Hours</p>
-                      <p className="mt-2 text-lg font-bold text-white">Mon – Sat: 5:00 PM – 7:00 PM</p>
-                      <p className="mt-1 text-sm text-slate-500 italic">Sunday: Closed</p>
-                    </div>
+                <div className="flex items-start gap-8 group">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/10 text-blue-400 transition-all group-hover:bg-blue-600 group-hover:text-white group-hover:scale-110 flex-shrink-0">
+                    <Clock size={32} />
                   </div>
-                  
-                  <div className="overflow-hidden rounded-2xl border border-white/10 shadow-2xl">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3935.253018244431!2d76.3331!3d9.686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b087f0025450001%3A0x7d00000000000000!2sPaithal%20Clinic!5e0!3m2!1sen!2sin!4v1711450000000!5m2!1sen!2sin"
-                      width="100%"
-                      height="300"
-                      style={{ border: 0 }}
-                      allowFullScreen={true}
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                      title="Clinic Location"
-                      className="grayscale-[20%] opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
-                    ></iframe>
+                  <div className="pt-1">
+                    <p className="text-sm font-medium text-slate-300 uppercase tracking-wider">Clinic Hours</p>
+                    <p className="mt-2 text-lg font-bold text-white">Mon – Sat: 5:00 PM – 7:00 PM</p>
+                    <p className="mt-1 text-sm text-slate-500 italic">Sunday: Closed</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="rounded-[40px] bg-white/5 p-8 md:p-10 backdrop-blur-xl border border-white/10 shadow-2xl">
-              <h3 className="font-serif text-3xl font-semibold text-white mb-6">Book an Appointment</h3>
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid gap-6 md:grid-cols-2">
-                  <div className="space-y-2">
-                    <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Parent Name</label>
-                    <input 
-                      type="text" 
-                      className="w-full rounded-2xl bg-white/5 px-6 py-3.5 text-white outline-none ring-1 ring-white/10 transition-all focus:ring-2 focus:ring-blue-500 text-base placeholder:text-slate-600"
-                      placeholder="Your Name"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Child's Name</label>
-                    <input 
-                      type="text" 
-                      className="w-full rounded-2xl bg-white/5 px-6 py-3.5 text-white outline-none ring-1 ring-white/10 transition-all focus:ring-2 focus:ring-blue-500 text-base placeholder:text-slate-600"
-                      placeholder="Child's Name"
-                    />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Phone Number</label>
-                  <input 
-                    type="tel" 
-                    className="w-full rounded-2xl bg-white/5 px-6 py-3.5 text-white outline-none ring-1 ring-white/10 transition-all focus:ring-2 focus:ring-blue-500 text-base placeholder:text-slate-600"
-                    placeholder="Your Phone Number"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Message (Optional)</label>
-                  <textarea 
-                    rows={3}
-                    className="w-full rounded-2xl bg-white/5 px-6 py-3.5 text-white outline-none ring-1 ring-white/10 transition-all focus:ring-2 focus:ring-blue-500 text-base placeholder:text-slate-600 resize-none"
-                    placeholder="Any specific concerns?"
-                  ></textarea>
-                </div>
-                <button className="w-full rounded-2xl bg-blue-600 py-4 font-bold text-white text-base shadow-2xl shadow-blue-900/50 transition-all hover:bg-blue-500 hover:-translate-y-1 active:scale-[0.98]">
-                  Send Request
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
+            <div className="rounded-[40px] bg-white/5 p-8 backdrop-blur-xl border border-white/10 shadow-2xl flex flex-col justify-center">
+  <h3 className="font-serif text-3xl font-semibold text-white mb-8">Book an Appointment</h3>
+  <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+    
+    {/* Row 1: Name and Phone */}
+    <div className="flex flex-col md:flex-row gap-4">
+      <div className="flex-1 space-y-2">
+        <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Name*</label>
+        <input 
+          type="text" 
+          required
+          className="w-full rounded-2xl bg-white/5 px-6 py-4 text-white outline-none ring-1 ring-white/10 transition-all focus:ring-2 focus:ring-blue-500 text-base placeholder:text-slate-600"
+          placeholder="Your Name"
+        />
+      </div>
+      <div className="flex-1 space-y-2">
+        <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Phone*</label>
+        <input 
+          type="tel" 
+          required
+          className="w-full rounded-2xl bg-white/5 px-6 py-4 text-white outline-none ring-1 ring-white/10 transition-all focus:ring-2 focus:ring-blue-500 text-base placeholder:text-slate-600"
+          placeholder="Your Phone Number"
+        />
+      </div>
+    </div>
+
+    {/* Row 2: Message and Button */}
+    <div className="flex flex-col md:flex-row gap-4 items-end">
+      <div className="flex-[2] space-y-2 w-full">
+        <label className="text-xs font-semibold text-slate-300 uppercase tracking-wider">Message</label>
+        <textarea 
+          rows={1}
+          className="w-full rounded-2xl bg-white/5 px-6 py-4 text-white outline-none ring-1 ring-white/10 transition-all focus:ring-2 focus:ring-blue-500 text-base placeholder:text-slate-600 resize-none"
+          placeholder="Any specific concerns?"
+        ></textarea>
+      </div>
+      <button className="flex-1 w-full rounded-2xl bg-blue-600 py-4 font-bold text-white text-base shadow-2xl shadow-blue-900/50 transition-all hover:bg-blue-500 hover:-translate-y-1 active:scale-[0.98]">
+        Send Request
+      </button>
+    </div>
+
+  </form>
+</div>
 
       {/* Footer */}
       <footer className="bg-slate-950 py-20 text-slate-500 border-t border-white/5">
